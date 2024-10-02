@@ -1,5 +1,5 @@
 #root {
-  
+
 }
 
 .header {
@@ -7,7 +7,7 @@
   top: 0;
   width: 100%;
   background-color: #444;
-  box-shadow: 0px 3px 4px #ccc;
+  box-shadow: 0px 2px 5px #555;
 }
 
 .header ul {
@@ -29,3 +29,61 @@
   text-decoration: underline;
 }
 
+.content {
+  max-width: 1048px;
+  margin: 80px auto 0;
+}
+
+.content h2 {
+  text-align: center;
+}
+
+.content button {
+  margin: 20px 0;
+}
+
+.animation-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.animation-tabs div {
+  padding: 1em 2em;
+  border-radius: 5px;
+  background-color: #444;
+  cursor: pointer;
+}
+
+.animation-tabs div.active, .animation-tabs div:hover {
+  background-color: #666;
+  box-shadow: 2px 2px 5px #444;
+}
+
+.animation-css {
+  .circle:hover {
+    transform: translateX(200px);
+  }
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  transition: transform 1s ease-in;
+  margin-bottom: 10px;
+}
+
+.circle.animated {
+  animation: move 1s ease-in infinite;
+}
+
+@keyframes move {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(200px);
+  }
+}
