@@ -28,10 +28,10 @@ const JSAnimation = () => {
 
   return <>
     <AnimationWrapper name='JS Animation' isMultiple={isMultiple} changeMultiple={setIsMultiple}/>
-    <button onClick={startAnimation}>animate</button>
+    <button onClick={startAnimation}>Animate</button>
     <div className='animation-js'>
       {!isMultiple ? <div className='single' ref={animRef}>
-        <div className='circle'></div>
+        <div className='circle' key='single-one'></div>
       </div>
       : <div className="multiple" ref={animRef}>
         <div className="circle"></div>
