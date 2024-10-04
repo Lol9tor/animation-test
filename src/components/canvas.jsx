@@ -61,7 +61,7 @@ const CanvasAnimation = () => {
     <AnimationWrapper name='Canvas Animation' isMultiple={isMultiple} changeMultiple={setIsMultiple}/>
     <button onClick={toggleAnimation}>Animate</button>
     <div className='animation-canvas'>
-      <canvas id="canvas" width="400" height="500" style={{ border: '1px solid black'}} key={`canvas-${isMultiple}`}/>
+      <canvas id="canvas" width="400" height="500" style={{ border: 'none'}} key={`canvas-${isMultiple}`}/>
     </div>
   </>
 }

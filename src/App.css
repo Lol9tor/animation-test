@@ -79,6 +79,14 @@
   animation: move 1s ease-in infinite;
 }
 
+.animation-lottie {
+  display: flex;
+}
+
+.animation-webgl {
+  margin-top: 20px;
+}
+
 @keyframes move {
   0%, 100% {
     transform: translateX(0px);
