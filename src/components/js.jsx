@@ -13,7 +13,6 @@ const JSAnimation = () => {
   }
 
   const animate = (el) => {
-    console.log(el);
     let x = 0
     function frame() {
       x += 3.5;

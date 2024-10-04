@@ -35,7 +35,6 @@ const CanvasAnimation = () => {
       ctx.arc(c.x, c.y, c.radius, 0, Math.PI * 2);
       ctx.fillStyle = c.color;
       ctx.fill();
-      ctx.closePath();
 
       c.x += c.dx;
 
@@ -44,6 +43,7 @@ const CanvasAnimation = () => {
       }
     }
 
+    ctx.closePath();
     refAnimation.current = requestAnimationFrame(draw);
   }
 

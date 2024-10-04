@@ -28,7 +28,7 @@ const WebAPIAnimation = () => {
   const toggleAnimation = () => {
     if (!isAnimating) {
       animation.current.forEach((anim, i) => {
-        // anim.playbackRate = 1 - i*0.05
+        anim.playbackRate = 1 - i*0.05
         anim.play()
       })
       setIsAnimating(true)
