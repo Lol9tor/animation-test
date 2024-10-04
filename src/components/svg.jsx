@@ -1,35 +1,56 @@
+import {useEffect, useRef, useState} from 'react'
+import AnimationWrapper from './AnimationWrapper'
 
+const SVGAnimation = () => {
+  const [isMultiple, setIsMultiple] = useState(false)
+  const ref = useRef(null)
 
-const SVG = () => {
-  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50" width="200" height="100">
-  
-  <g id="envelope">
-    
-    <rect x="10" y="10" width="100" height="40" rx="5" ry="5" fill="#ffcc00" stroke="#555" strokeWidth="2"/>
-   
-    <polygon points="10,10 60,30 110,10" fill="#ff9900" stroke="#555" strokeWidth="2">
-      <animate attributeName="points" dur="0.6s" repeatCount="indefinite"
-        values="10,10 60,30 110,10; 10,15 60,35 110,15; 10,10 60,30 110,10"/>
-    </polygon>
-  </g>
+  useEffect(() => {
+    ref.current = document.querySelector('svg')
+    ref.current.pauseAnimations()
+  }, []);
 
-  
-  <animateTransform 
-    attributeName="transform" 
-    type="translate" 
-    from="0,0" 
-    to="150,-100" 
-    dur="3s" 
-    repeatCount="indefinite" />
+  const toggleAnimations = () => {
+    if (ref.current.animationsPaused()) {
+      ref.current.unpauseAnimations()
+    } else {
+      ref.current.pauseAnimations()
+    }
+  }
 
-  
-  <animateTransform 
-    attributeName="transform" 
-    type="rotate" 
-    values="0 60 30; 10 60 30; -10 60 30; 0 60 30" 
-    dur="0.8s" 
-    repeatCount="indefinite" />
-</svg>
+  return <>
+    <AnimationWrapper name='SVG Animation' isMultiple={isMultiple} changeMultiple={setIsMultiple}/>
+    <button onClick={toggleAnimations}>Animate</button>
+    <div className='animation-svg'>
+      <svg width="300" height={`${isMultiple ? '375' : '100'}`}>
+        {!isMultiple ?
+            <circle cx="25" cy="50" r="25" fill="red" key='single-anim'>
+            <animate attributeName="cx" values="25; 225; 25" dur="2s" repeatCount="indefinite" name='move-animation'/>
+          </circle>
+          : <>
+            <circle cx="25" cy="50" r="25" fill="red">
+              <animate attributeName="cx" values="25; 225; 25" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="25" cy="110" r="25" fill="red">
+              <animate attributeName="cx" values="25; 225; 25" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="25" cy="170" r="25" fill="red">
+              <animate attributeName="cx" values="25; 225; 25" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="25" cy="230" r="25" fill="red">
+              <animate attributeName="cx" values="25; 225; 25" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="25" cy="290" r="25" fill="red">
+              <animate attributeName="cx" values="25; 225; 25" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="25" cy="350" r="25" fill="red">
+              <animate attributeName="cx" values="25; 225; 25" dur="2s" repeatCount="indefinite"/>
+            </circle>
+          </>
+        }
+      </svg>
+    </div>
+  </>
 }
 
-export default SVG
+export default SVGAnimation
